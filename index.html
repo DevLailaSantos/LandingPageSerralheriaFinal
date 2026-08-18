@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<!--
+    DOCTYPE:
+    Informa ao navegador que estamos utilizando HTML5.
+-->
+
+<html lang="pt-BR">
+<!--
+    lang="pt-BR":
+    Define que o idioma principal da página é português do Brasil.
+    Isso também ajuda ferramentas de acessibilidade e leitores de tela.
+-->
+
+<head>
+
+    <!-- Permite utilizar caracteres especiais, como ç, ã e acentos -->
+    <meta charset="UTF-8">
+
+    <!--
+        RESPONSIVIDADE:
+        Faz a página se adaptar à largura de celulares,
+        tablets e computadores.
+    -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!--
+        DESCRIPTION:
+        Descrição utilizada por mecanismos de busca.
+        Também é uma boa prática de SEO.
+    -->
+    <meta
+        name="description"
+        content="Serralheria especializada em portões, grades, corrimãos e estruturas metálicas sob medida."
+    >
+
+    <!-- Identificação do responsável pelo projeto -->
+    <meta
+        name="author"
+        content="Serralheria"
+    >
+
+    <!-- Título exibido na aba do navegador -->
+    <title>Serralheria | Estruturas Metálicas</title>
+
+
+    <!--
+        CSS EXTERNO:
+
+        O HTML fica responsável pela estrutura.
+        O CSS fica responsável pela aparência.
+
+        O arquivo está dentro da pasta:
+        css/style.css
+    -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+<!--
+    BODY:
+    Todo conteúdo visual da página fica dentro do <body>.
+-->
+
+
+    <!-- =========================================
+         ACESSIBILIDADE
+    ========================================== -->
+
+    <!--
+        PAINEL DE ACESSIBILIDADE
+
+        Permite ao usuário:
+        - escolher tema claro;
+        - escolher tema escuro;
+        - diminuir o tamanho da fonte;
+        - voltar ao tamanho médio;
+        - aumentar o tamanho da fonte.
+
+        O JavaScript será responsável pelo funcionamento
+        desses botões.
+    -->
+
+    <div
+        class="accessibility-panel"
+        aria-label="Opções de acessibilidade"
+    >
+
+        <!-- Botão para tema claro -->
+        <button
+            type="button"
+            id="theme-light"
+            aria-label="Ativar tema claro"
+            title="Tela clara"
+        >
+            ☀️
+        </button>
+
+
+        <!-- Botão para tema escuro -->
+        <button
+            type="button"
+            id="theme-dark"
+            aria-label="Ativar tema escuro"
+            title="Tela escura"
+        >
+            🌙
+        </button>
+
+
+        <!-- Botão para fonte pequena -->
+        <button
+            type="button"
+            id="font-small"
+            aria-label="Usar letra pequena"
+            title="Letra pequena"
+        >
+            A-
+        </button>
+
+
+        <!-- Botão para fonte média -->
+        <button
+            type="button"
+            id="font-medium"
+            aria-label="Usar letra média"
+            title="Letra média"
+        >
+            A
+        </button>
+
+
+        <!-- Botão para fonte grande -->
+        <button
+            type="button"
+            id="font-large"
+            aria-label="Usar letra grande"
+            title="Letra grande"
+        >
+            A+
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <!--
+        HEADER:
+        Elemento semântico utilizado para representar
+        o cabeçalho da página.
+    -->
+
+    <header class="header">
+
+
+        <!--
+            NAV:
+            Representa uma área de navegação.
+
+            aria-label:
+            Ajuda leitores de tela a identificar
+            que este é o menu principal.
+        -->
+
+        <nav
+            class="navbar"
+            aria-label="Navegação principal"
+        >
+
+
+            <!--
+                LOGO:
+
+                O <a> transforma o nome da empresa
+                em um link que leva para o início da página.
+
+                href="#inicio":
+                O "#" indica que estamos navegando
+                para um elemento dentro da própria página.
+            -->
+
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Página inicial da Serralheria"
+            >
+                RK SERRALHERIA
+            </a>
+
+
+
+            <!--
+                MENU MOBILE:
+
+                Este botão será utilizado em telas pequenas.
+
+                O JavaScript irá abrir e fechar o menu.
+
+                aria-expanded="false":
+                Informa que o menu começa fechado.
+            -->
+
+            <button
+                type="button"
+                class="menu-toggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+                ☰
+            </button>
+
+
+
+            <!--
+                LISTA DE NAVEGAÇÃO:
+
+                <ul> = lista não ordenada.
+                <li> = item da lista.
+                <a> = link.
+
+                Essa estrutura é uma prática comum
+                para construção de menus.
+            -->
+
+            <ul
+                class="menu"
+                id="menu-principal"
+            >
+
+                <li>
+                    <a href="#inicio">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#servicos">
+                        Serviços
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projetos">
+                        Projetos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#processo">
+                        Processo
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contato">
+                        Contato
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+
+    <!--
+        MAIN:
+
+        Representa o conteúdo principal da página.
+
+        Dentro dele ficam as principais seções
+        da landing page.
+    -->
+
+    <main>
+
+
+        <!-- =====================================
+             HERO / BANNER
+        ====================================== -->
+
+        <!--
+            HERO:
+
+            É a primeira área visual do site.
+
+            id="inicio":
+            Permite que os links do menu direcionem
+            o usuário para esta seção.
+        -->
+
+        <section
+            class="hero"
+            id="inicio"
+            aria-labelledby="hero-title"
+        >
+
+            <div class="hero-content">
+
+
+                <!-- Texto de destaque secundário -->
+                <span class="hero-subtitle">
+                    Serralheria especializada
+                </span>
+
+
+                <!--
+                    H1:
+
+                    É o título principal da página.
+
+                    Em uma página, normalmente temos
+                    um título principal <h1>.
+                -->
+
+                <h1 id="hero-title">
+                    Estruturas metálicas
+                    feitas para durar.
+                </h1>
+
+
+                <!-- Descrição principal do serviço -->
+                <p>
+                    Projetos em metal sob medida para
+                    residências, comércios e empresas.
+                </p>
+
+
+
+                <!--
+                    ÁREA DOS BOTÕES:
+
+                    Um botão leva ao WhatsApp.
+                    O outro leva para a seção de serviços.
+                -->
+
+                <div class="hero-buttons">
+
+
+                    <!--
+                        LINK EXTERNO:
+
+                        target="_blank":
+                        Abre o WhatsApp em uma nova aba.
+
+                        rel="noopener noreferrer":
+                        Boa prática de segurança ao utilizar
+                        target="_blank".
+                    -->
+
+                    <a
+                        href="https://wa.me/5562996752372?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+                        class="button button-primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Solicitar orçamento
+                    </a>
+
+
+                    <!--
+                        LINK INTERNO:
+
+                        #servicos direciona o usuário
+                        para a seção que possui:
+
+                        id="servicos"
+                    -->
+
+                    <a
+                        href="#servicos"
+                        class="button button-secondary"
+                    >
+                        Conhecer serviços
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SERVIÇOS
+        ====================================== -->
+
+        <!--
+            SECTION:
+
+            Divide o conteúdo da página em seções
+            semanticamente organizadas.
+        -->
+
+        <section
+            class="services"
+            id="servicos"
+            aria-labelledby="services-title"
+        >
+
+            <div class="section-header">
+
+                <span class="section-subtitle">
+                    O que fazemos
+                </span>
+
+                <h2 id="services-title">
+                    Nossos serviços
+                </h2>
+
+                <p>
+                    Soluções em serralheria desenvolvidas
+                    de acordo com a necessidade de cada cliente.
+                </p>
+
+            </div>
+
+
+
+            <!--
+                GRID DE SERVIÇOS:
+
+                Cada serviço será apresentado
+                dentro de um <article>.
+            -->
+
+            <div class="services-grid">
+
+
+                <!-- SERVIÇO 1 -->
+
+                <article class="service-card">
+
+                    <!--
+                        Ícone decorativo.
+
+                        aria-hidden="true":
+                        Informa aos leitores de tela
+                        que o símbolo é apenas decorativo.
+                    -->
+
+                    <div
+                        class="service-icon"
+                        aria-hidden="true"
+                    >
+                        ⚒
+                    </div>
+
+                    <h3>
+                        Portões
+                    </h3>
+
+                    <p>
+                        Fabricação e instalação de portões
+                        metálicos sob medida para residências
+                        e empresas.
+                    </p>
+
+                </article>
+
+
+
+                <!-- SERVIÇO 2 -->
+
+                <article class="service-card">
+
+                    <div
+                        class="service-icon"
+                        aria-hidden="true"
+                    >
+                        ▦
+                    </div>
+
+                    <h3>
+                        Grades
+                    </h3>
+
+                    <p>
+                        Grades metálicas para proteção,
+                        segurança e acabamento de diferentes
+                        ambientes.
+                    </p>
+
+                </article>
+
+
+
+                <!-- SERVIÇO 3 -->
+
+                <article class="service-card">
+
+                    <div
+                        class="service-icon"
+                        aria-hidden="true"
+                    >
+                        ╱
+                    </div>
+
+                    <h3>
+                        Corrimãos
+                    </h3>
+
+                    <p>
+                        Corrimãos metálicos produzidos para
+                        proporcionar segurança e funcionalidade.
+                    </p>
+
+                </article>
+
+
+
+                <!-- SERVIÇO 4 -->
+
+                <article class="service-card">
+
+                    <div
+                        class="service-icon"
+                        aria-hidden="true"
+                    >
+                        ⚙
+                    </div>
+
+                    <h3>
+                        Projetos sob medida
+                    </h3>
+
+                    <p>
+                        Soluções personalizadas de acordo
+                        com as necessidades de cada projeto.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SOBRE A EMPRESA
+        ====================================== -->
+
+        <section
+            class="about"
+            id="sobre"
+            aria-labelledby="about-title"
+        >
+
+            <div class="about-content">
+
+                <span class="section-subtitle">
+                    Sobre nós
+                </span>
+
+                <h2 id="about-title">
+                    Experiência e qualidade
+                </h2>
+
+                <p>
+                    Trabalhamos com fabricação e instalação
+                    de estruturas metálicas, buscando oferecer
+                    soluções funcionais, resistentes e adequadas
+                    às necessidades de cada cliente.
+                </p>
+
+                <p>
+                    Nosso trabalho é a união do planejamento,
+                    fabricação e instalação para entregar
+                    projetos com qualidade e segurança.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PROJETOS / PORTFÓLIO
+        ====================================== -->
+
+        <section
+            class="projects"
+            id="projetos"
+            aria-labelledby="projects-title"
+        >
+
+            <div class="section-header">
+
+                <span class="section-subtitle">
+                    Portfólio
+                </span>
+
+                <h2 id="projects-title">
+                    Projetos realizados
+                </h2>
+
+                <p>
+                    Alguns exemplos de soluções desenvolvidas
+                    em serralheria.
+                </p>
+
+            </div>
+
+
+
+            <!--
+                CADA ARTICLE REPRESENTA UM PROJETO.
+
+                As imagens ficam na pasta:
+
+                images/
+
+                e são chamadas através de seus caminhos.
+            -->
+
+            <div class="projects-grid">
+
+
+                <!-- PROJETO 1 -->
+
+                <article class="project-card">
+
+                    <div class="project-image">
+
+                        <!--
+                            ALT:
+
+                            Texto alternativo da imagem.
+                            É importante para acessibilidade.
+
+                            Se a imagem não carregar,
+                            o texto poderá ser apresentado.
+                        -->
+
+                        <img
+                            src="/img/Captura de tela 2026-08-13 170045.png"
+                            alt="Portão metálico residencial"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Portão residencial
+                        </h3>
+
+                        <p>
+                            Projeto desenvolvido sob medida
+                            para residência.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJETO 2 -->
+
+                <article class="project-card">
+
+                    <div class="project-image">
+
+                        <img
+                            src="/img/WhatsApp Image 2026-08-17 at 16.46.24 (2).jpeg"
+                            alt="Estrutura metálica"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Estrutura metálica
+                        </h3>
+
+                        <p>
+                            Estrutura desenvolvida para
+                            atender às necessidades do cliente.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PROJETO 3 -->
+
+                <article class="project-card">
+
+                    <div class="project-image">
+
+                        <img
+                            src="/img/Captura de tela 2026-08-13 162922.png"
+                            alt="Grade metálica residencial"
+                        >
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Grade metálica
+                        </h3>
+
+                        <p>
+                            Solução metálica para proteção
+                            e acabamento residencial.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PROCESSO DE TRABALHO
+        ====================================== -->
+
+        <section
+            class="process"
+            id="processo"
+            aria-labelledby="process-title"
+        >
+
+            <div class="section-header">
+
+                <span class="section-subtitle">
+                    Como funciona
+                </span>
+
+                <h2 id="process-title">
+                    Nosso processo
+                </h2>
+
+                <p>
+                    Do primeiro contato à instalação,
+                    buscamos tornar o atendimento simples
+                    e objetivo.
+                </p>
+
+            </div>
+
+
+
+            <div class="process-grid">
+
+
+                <!-- ETAPA 1 -->
+
+                <article class="process-step">
+
+                    <span class="step-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Solicitação
+                    </h3>
+
+                    <p>
+                        O cliente entra em contato e apresenta
+                        sua necessidade.
+                    </p>
+
+                </article>
+
+
+
+                <!-- ETAPA 2 -->
+
+                <article class="process-step">
+
+                    <span class="step-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Avaliação
+                    </h3>
+
+                    <p>
+                        Analisamos as características do projeto
+                        e definimos a melhor solução.
+                    </p>
+
+                </article>
+
+
+
+                <!-- ETAPA 3 -->
+
+                <article class="process-step">
+
+                    <span class="step-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Fabricação
+                    </h3>
+
+                    <p>
+                        A estrutura é produzida de acordo
+                        com as especificações definidas.
+                    </p>
+
+                </article>
+
+
+
+                <!-- ETAPA 4 -->
+
+                <article class="process-step">
+
+                    <span class="step-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Instalação
+                    </h3>
+
+                    <p>
+                        Após a fabricação, realizamos a
+                        instalação da estrutura.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             GALERIA / CARROSSEL
+        ====================================== -->
+
+        <section
+            class="gallery"
+            id="galeria"
+            aria-labelledby="gallery-title"
+        >
+
+            <div class="section-header">
+
+                <span class="section-subtitle">
+                    Galeria
+                </span>
+
+                <h2 id="gallery-title">
+                    Alguns de nossos trabalhos
+                </h2>
+
+                <p>
+                    Conheça alguns dos projetos realizados.
+                </p>
+
+            </div>
+
+
+
+            <!--
+                CARROSSEL:
+
+                O HTML contém as imagens.
+                O CSS define a aparência.
+                O JavaScript fará a troca das imagens.
+            -->
+
+            <div class="carousel">
+
+
+                <!-- Botão para voltar uma imagem -->
+
+                <button
+                    type="button"
+                    class="carousel-button prev"
+                    aria-label="Foto anterior"
+                >
+                    &#10094;
+                </button>
+
+
+
+                <!--
+                    ÁREA VISÍVEL DO CARROSSEL
+
+                    aria-live="polite":
+                    Ajuda tecnologias assistivas a perceberem
+                    alterações no conteúdo sem interromper
+                    imediatamente o usuário.
+                -->
+
+                <div
+                    class="carousel-window"
+                    aria-live="polite"
+                >
+
+                    <div class="carousel-track">
+
+
+                        <!-- IMAGEM 1 -->
+
+                        <img
+                            src="/img/Captura de tela 2026-08-13 165037.png"
+                            alt="Projeto de portão metálico"
+                        >
+
+
+                        <!-- IMAGEM 2 -->
+
+                        <img
+                            src="/img/Captura de tela 2026-08-13 170702.png"
+                            alt="Projeto de estrutura metálica"
+                        >
+
+
+                        <!-- IMAGEM 3 -->
+
+                        <img
+                            src="/img/Captura de tela 2026-08-13 162922.png"
+                            alt="Projeto de grade metálica"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Botão para avançar uma imagem -->
+
+                <button
+                    type="button"
+                    class="carousel-button next"
+                    aria-label="Próxima foto"
+                >
+                    &#10095;
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FORMULÁRIO DE ORÇAMENTO
+        ====================================== -->
+
+        <section
+            class="contact"
+            id="contato"
+            aria-labelledby="contact-title"
+        >
+
+            <div class="section-header">
+
+                <span class="section-subtitle">
+                    Fale conosco
+                </span>
+
+                <h2 id="contact-title">
+                    Solicite um orçamento
+                </h2>
+
+                <p>
+                    Preencha as informações abaixo e
+                    entre em contato conosco pelo WhatsApp.
+                </p>
+
+            </div>
+
+
+
+            <!--
+                FORM:
+
+                Formulário utilizado para coletar
+                as informações necessárias do cliente.
+
+                id="budget-form":
+
+                O JavaScript utilizará esse ID para
+                identificar o formulário.
+            -->
+
+            <form
+                class="budget-form"
+                id="budget-form"
+            >
+
+
+                <!-- CAMPO NOME -->
+
+                <div class="form-group">
+
+                    <!--
+                        LABEL:
+
+                        Identifica o campo para o usuário
+                        e para tecnologias assistivas.
+                    -->
+
+                    <label for="name">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Digite seu nome"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CAMPO TELEFONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Telefone
+                    </label>
+
+                    <!--
+                        type="tel":
+
+                        Indica que o campo receberá
+                        um número de telefone.
+
+                        required:
+
+                        Torna o preenchimento obrigatório.
+
+                        O JavaScript também aplicará
+                        uma máscara ao telefone.
+                    -->
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="(62) 99999-9999"
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- SELEÇÃO DO SERVIÇO -->
+
+                <div class="form-group">
+
+                    <label for="service">
+                        Serviço desejado
+                    </label>
+
+                    <!--
+                        SELECT:
+
+                        Cria uma lista de opções
+                        para o usuário escolher.
+                    -->
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
+                            Selecione uma opção
+                        </option>
+
+                        <option value="portoes">
+                            Portões
+                        </option>
+
+                        <option value="grades">
+                            Grades
+                        </option>
+
+                        <option value="corrimaos">
+                            Corrimãos
+                        </option>
+
+                        <option value="estrutura">
+                            Estruturas metálicas
+                        </option>
+
+                        <option value="sob-medida">
+                            Projeto sob medida
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DESCRIÇÃO DO PROJETO -->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Descreva seu projeto
+                    </label>
+
+                    <!--
+                        TEXTAREA:
+
+                        Utilizado quando precisamos
+                        de várias linhas de texto.
+                    -->
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Descreva brevemente o que você precisa..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--
+                    BOTÃO SUBMIT:
+
+                    type="submit":
+
+                    Indica que o botão enviará
+                    o formulário.
+
+                    O JavaScript interceptará esse envio
+                    e montará uma mensagem para o WhatsApp.
+                -->
+
+                <button
+                    type="submit"
+                    class="button button-primary"
+                >
+                    Solicitar orçamento pelo WhatsApp
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         WHATSAPP FLUTUANTE
+    ========================================== -->
+
+    <!--
+        BOTÃO FLUTUANTE:
+
+        Fica fixado na tela através do CSS.
+
+        target="_blank":
+        Abre o WhatsApp em uma nova aba.
+
+        IMPORTANTE:
+        Substituir 5562999999999 pelo número real
+        da empresa.
+    -->
+
+    <a
+        href="https://wa.me/5562996752372?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+        class="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar com a serralheria pelo WhatsApp"
+        title="Falar pelo WhatsApp"
+    >
+
+        <!--
+            SVG:
+
+            O ícone é armazenado localmente
+            na pasta images.
+
+            Isso evita depender de uma biblioteca
+            externa de ícones.
+        -->
+
+        <img
+            src="/img/imgWhatsApp.png"
+            alt=""
+            aria-hidden="true"
+        >
+
+    </a>
+
+
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================== -->
+
+    <!--
+        FOOTER:
+
+        Representa o rodapé da página.
+
+        Normalmente contém informações como:
+        - empresa;
+        - contato;
+        - direitos autorais.
+    -->
+
+    <footer class="footer">
+
+
+        <div class="footer-content">
+
+
+            <!-- INFORMAÇÕES DA EMPRESA -->
+
+            <div class="footer-brand">
+
+                <h2>
+                    SERRALHERIA
+                </h2>
+
+                <p>
+                    Soluções em estruturas metálicas
+                    para diferentes necessidades.
+                </p>
+
+            </div>
+
+
+
+            <!-- INFORMAÇÕES DE CONTATO -->
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contato
+                </h3>
+
+                <!--
+                    ADDRESS:
+
+                    Elemento semântico utilizado
+                    para informações de contato.
+                -->
+
+                <address>
+
+                    <p>
+
+                        Telefone:
+
+                        <a href="tel:+5562996752372">
+                            (62) 99675-2372
+                        </a>
+
+                    </p>
+
+
+                    <p>
+
+                        WhatsApp:
+
+                        <a
+                            href="https://wa.me/5562996752372"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Fale conosco
+                        </a>
+
+                    </p>
+
+                </address>
+
+            </div>
+
+        </div>
+
+
+
+        <!--
+            COPYRIGHT:
+
+            O JavaScript poderá atualizar
+            automaticamente o ano.
+        -->
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Serralheria.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         VLIBRAS
+    ========================================== -->
+
+    <!--
+        VLIBRAS:
+
+        Recurso de acessibilidade que permite
+        traduzir o conteúdo da página para Libras.
+
+        É um recurso externo integrado ao projeto.
+    -->
+
+    <div
+        vw
+        class="enabled"
+    >
+
+        <!-- Botão que abre o VLibras -->
+
+        <div
+            vw-access-button
+            class="active"
+        ></div>
+
+
+        <!-- Área onde o plugin será exibido -->
+
+        <div
+            vw-plugin-wrapper
+        >
+
+            <div class="vw-plugin-top-wrapper"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--
+        SCRIPT OFICIAL DO VLIBRAS:
+
+        Carrega a biblioteca disponibilizada
+        pelo projeto VLibras.
+    -->
+
+    <script
+        src="https://vlibras.gov.br/app/vlibras-plugin.js"
+    ></script>
+
+
+    <!-- Inicialização do VLibras -->
+
+    <script>
+
+        new window.VLibras.Widget(
+            "https://vlibras.gov.br/app"
+        );
+
+    </script>
+
+
+
+    <!--
+        JAVASCRIPT DO PROJETO:
+
+        Este arquivo será responsável por
+        funcionalidades como:
+
+        - menu mobile;
+        - carrossel;
+        - formulário;
+        - máscara do telefone;
+        - WhatsApp;
+        - acessibilidade;
+        - tema claro/escuro;
+        - tamanho das fontes.
+    -->
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>

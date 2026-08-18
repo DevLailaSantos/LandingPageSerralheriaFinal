@@ -1,0 +1,1809 @@
+/* =========================================================
+   SERRALHERIA — STYLE.CSS
+   PARTE 2/5 — CSS
+
+   O CSS é responsável pela APARÊNCIA da página:
+   - cores
+   - tamanhos
+   - espaçamentos
+   - posicionamento
+   - responsividade
+   - animações
+   - temas
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET / CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+/*
+   O seletor * seleciona TODOS os elementos da página.
+
+   box-sizing: border-box:
+   Faz com que padding e border sejam considerados
+   dentro da largura/altura definida do elemento.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+   html:
+   scroll-behavior: smooth faz com que os links internos
+   rolem suavemente até cada seção.
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*
+   body:
+   Define as configurações gerais da página.
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    line-height: 1.6;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/*
+   Remove o sublinhado padrão dos links.
+*/
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*
+   Imagens:
+   max-width: 100% impede que a imagem ultrapasse
+   o tamanho do elemento pai.
+
+   display: block elimina pequenos espaços
+   que podem aparecer abaixo da imagem.
+*/
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/*
+   Botões e campos de formulário herdam
+   a fonte utilizada pelo site.
+*/
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/*
+   Remove marcadores das listas.
+*/
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================================
+   2. VARIÁVEIS CSS
+   ========================================================= */
+
+/*
+   :root permite criar VARIÁVEIS CSS.
+
+   Vantagem:
+   Se quisermos mudar uma cor do site,
+   podemos alterar apenas aqui.
+
+   Exemplo:
+   var(--color-primary)
+*/
+
+:root {
+
+    /* Cores principais */
+
+    --color-primary: #b8860b;
+    --color-primary-dark: #967009;
+
+    --color-dark: #1f1f1f;
+    --color-text: #555555;
+
+    --color-white: #ffffff;
+    --color-light: #f5f5f5;
+    --color-border: #dddddd;
+
+    /* WhatsApp */
+
+    --color-whatsapp: #25d366;
+
+    /* Largura máxima do conteúdo */
+
+    --container-width: 1200px;
+
+    /* Espaçamentos */
+
+    --section-padding: 80px;
+
+    /* Transição padrão */
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   3. CONTAINER / ESTRUTURA
+   ========================================================= */
+
+/*
+   Criamos uma classe reutilizável para controlar
+   a largura máxima do conteúdo.
+
+   Mesmo que o HTML atual não utilize .container
+   em todas as seções, ela fica disponível para
+   futuras melhorias.
+*/
+
+.container {
+    width: min(90%, var(--container-width));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   4. ACESSIBILIDADE
+   ========================================================= */
+
+/*
+   Painel de acessibilidade.
+
+   position: fixed:
+   Mantém o painel visível mesmo quando o usuário
+   rola a página.
+*/
+
+.accessibility-panel {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+
+    display: flex;
+    gap: 5px;
+
+    padding: 6px;
+
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    z-index: 1000;
+}
+
+
+/*
+   Botões do painel.
+*/
+
+.accessibility-panel button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--color-light);
+    color: var(--color-dark);
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: var(--transition);
+}
+
+
+/*
+   Efeito quando o mouse passa sobre os botões.
+*/
+
+.accessibility-panel button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+
+/* =========================================================
+   5. HEADER / NAVBAR
+   ========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+
+    background-color: var(--color-white);
+
+    border-bottom: 1px solid var(--color-border);
+
+    z-index: 999;
+}
+
+
+/*
+   Navbar:
+   display: flex coloca os elementos lado a lado.
+*/
+
+.navbar {
+    width: min(90%, var(--container-width));
+
+    min-height: 72px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/*
+   Logo.
+*/
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: var(--color-dark);
+}
+
+
+/*
+   Menu.
+
+   display: flex:
+   Coloca os itens horizontalmente.
+*/
+
+.menu {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/*
+   Links do menu.
+*/
+
+.menu a {
+    font-size: 0.95rem;
+
+    color: var(--color-dark);
+
+    transition: var(--transition);
+}
+
+
+/*
+   Efeito hover.
+
+   :hover é aplicado quando o mouse
+   está sobre o elemento.
+*/
+
+.menu a:hover {
+    color: var(--color-primary);
+}
+
+
+/*
+   Botão do menu mobile.
+
+   Inicialmente fica escondido.
+*/
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 1.8rem;
+
+    cursor: pointer;
+
+    color: var(--color-dark);
+}
+
+
+/* =========================================================
+   6. HERO / BANNER
+   ========================================================= */
+
+/*
+   A seção hero recebe uma imagem de fundo.
+
+   IMPORTANTE:
+   Caso o nome da sua imagem seja diferente,
+   altere "hero.jpg".
+
+   background-size: cover:
+   Faz a imagem preencher todo o espaço.
+
+   background-position: center:
+   Centraliza a imagem.
+*/
+
+.hero {
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("../img/Captura\ de\ tela\ 2026-08-13\ 164012.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*
+   Conteúdo do Hero.
+*/
+
+.hero-content {
+    width: min(90%, 800px);
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    color: var(--color-white);
+}
+
+
+/*
+   Texto pequeno acima do título.
+*/
+
+.hero-subtitle {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 0.85rem;
+}
+
+
+/*
+   H1 principal.
+*/
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+
+/*
+   Texto do Hero.
+*/
+
+.hero p {
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    font-size: 1.1rem;
+}
+
+
+/*
+   Área dos botões.
+*/
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   7. BOTÕES
+   ========================================================= */
+
+/*
+   Classe base utilizada pelos botões.
+*/
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 25px;
+
+    border-radius: 5px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    transition: var(--transition);
+}
+
+
+/*
+   Botão principal.
+*/
+
+.button-primary {
+    background-color: var(--color-primary);
+
+    color: var(--color-white);
+}
+
+
+/*
+   Hover do botão principal.
+*/
+
+.button-primary:hover {
+    background-color: var(--color-primary-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/*
+   Botão secundário.
+*/
+
+.button-secondary {
+    background-color: transparent;
+
+    color: var(--color-white);
+
+    border-color: var(--color-white);
+}
+
+
+/*
+   Hover do botão secundário.
+*/
+
+.button-secondary:hover {
+    background-color: var(--color-white);
+
+    color: var(--color-dark);
+}
+
+
+/* =========================================================
+   8. ESTRUTURA DAS SEÇÕES
+   ========================================================= */
+
+/*
+   Espaçamento vertical padrão.
+
+   As seções recebem padding para criar
+   espaço entre os conteúdos.
+*/
+
+.services,
+.about,
+.projects,
+.process,
+.gallery,
+.contact {
+    padding: var(--section-padding) 5%;
+}
+
+
+/*
+   Cabeçalho das seções.
+*/
+
+.section-header {
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+/*
+   Pequeno título de destaque.
+*/
+
+.section-subtitle {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--color-primary);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+/*
+   Títulos H2.
+*/
+
+.section-header h2,
+.about h2 {
+    margin-bottom: 15px;
+
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+
+    line-height: 1.2;
+
+    color: var(--color-dark);
+}
+
+
+/*
+   Texto das seções.
+*/
+
+.section-header p {
+    color: var(--color-text);
+}
+
+
+/* =========================================================
+   9. SERVIÇOS
+   ========================================================= */
+
+.services {
+    background-color: var(--color-light);
+}
+
+
+/*
+   CSS GRID:
+
+   Grid é utilizado para organizar os cards
+   em colunas e linhas.
+*/
+
+.services-grid {
+    width: min(90%, var(--container-width));
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/*
+   Card individual.
+*/
+
+.service-card {
+    padding: 30px;
+
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+
+/*
+   Efeito visual ao passar o mouse.
+*/
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/*
+   Ícone do serviço.
+*/
+
+.service-icon {
+    margin-bottom: 20px;
+
+    font-size: 2rem;
+
+    color: var(--color-primary);
+}
+
+
+/*
+   Título do card.
+*/
+
+.service-card h3 {
+    margin-bottom: 10px;
+
+    color: var(--color-dark);
+}
+
+
+/*
+   Texto do card.
+*/
+
+.service-card p {
+    color: var(--color-text);
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   10. SOBRE
+   ========================================================= */
+
+.about {
+    width: 100%;
+
+    background-color: var(--color-white);
+}
+
+
+/*
+   Limitamos a largura do texto para
+   melhorar a leitura.
+*/
+
+.about-content {
+    width: min(90%, 800px);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.about-content p {
+    margin-bottom: 15px;
+
+    color: var(--color-text);
+}
+
+
+/* =========================================================
+   11. PROJETOS
+   ========================================================= */
+
+.projects {
+    background-color: var(--color-light);
+}
+
+
+/*
+   Grid dos projetos.
+*/
+
+.projects-grid {
+    width: min(90%, var(--container-width));
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/*
+   Card do projeto.
+*/
+
+.project-card {
+    overflow: hidden;
+
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 8px;
+
+    transition: var(--transition);
+}
+
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/*
+   Imagem do projeto.
+
+   Aspect-ratio mantém uma proporção
+   uniforme para as imagens.
+*/
+
+.project-image {
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+}
+
+
+.project-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+/*
+   Zoom suave na imagem durante o hover.
+*/
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/*
+   Texto do projeto.
+*/
+
+.project-content {
+    padding: 25px;
+}
+
+
+.project-content h3 {
+    margin-bottom: 8px;
+
+    color: var(--color-dark);
+}
+
+
+.project-content p {
+    color: var(--color-text);
+}
+
+
+/* =========================================================
+   12. PROCESSO
+   ========================================================= */
+
+.process {
+    background-color: var(--color-white);
+}
+
+
+.process-grid {
+    width: min(90%, var(--container-width));
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/*
+   Cada etapa do processo.
+*/
+
+.process-step {
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/*
+   Número da etapa.
+*/
+
+.step-number {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background-color: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-weight: 700;
+}
+
+
+/*
+   Título da etapa.
+*/
+
+.process-step h3 {
+    margin-bottom: 10px;
+}
+
+
+/*
+   Descrição da etapa.
+*/
+
+.process-step p {
+    color: var(--color-text);
+}
+
+
+/* =========================================================
+   13. GALERIA / CARROSSEL
+   ========================================================= */
+
+.gallery {
+    background-color: var(--color-light);
+}
+
+
+/*
+   Área principal do carrossel.
+
+   position: relative permite posicionar
+   os botões sobre a imagem.
+*/
+
+.carousel {
+    position: relative;
+
+    width: min(90%, 900px);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/*
+   Janela do carrossel.
+
+   overflow: hidden:
+   Esconde as imagens que estão fora da área visível.
+*/
+
+.carousel-window {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+}
+
+
+/*
+   Track:
+
+   Contém todas as imagens lado a lado.
+
+   O JavaScript irá alterar o transform
+   para movimentar as imagens.
+*/
+
+.carousel-track {
+    display: flex;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.carousel-track img {
+    flex: 0 0 100%;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+}
+
+
+/*
+   Botões anterior/próximo.
+*/
+
+.carousel-button {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.carousel-button:hover {
+    background-color: var(--color-primary-dark);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   14. FORMULÁRIO
+   ========================================================= */
+
+.contact {
+    background-color: var(--color-white);
+}
+
+
+/*
+   Formulário com largura limitada.
+*/
+
+.budget-form {
+    width: min(90%, 700px);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/*
+   Grupo formado por:
+   label + input/select/textarea.
+*/
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/*
+   Labels.
+*/
+
+.form-group label {
+    font-weight: 700;
+
+    color: var(--color-dark);
+}
+
+
+/*
+   Campos do formulário.
+*/
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 5px;
+
+    background-color: var(--color-white);
+
+    color: var(--color-dark);
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+
+/*
+   :focus:
+
+   Aplica estilo quando o usuário
+   está utilizando aquele campo.
+*/
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(184, 134, 11, 0.15);
+}
+
+
+/*
+   Impede o usuário de aumentar horizontalmente
+   o textarea.
+*/
+
+.form-group textarea {
+    resize: vertical;
+}
+
+
+/*
+   Botão do formulário ocupa a largura disponível.
+*/
+
+.budget-form .button {
+    width: 100%;
+}
+
+
+/* =========================================================
+   15. WHATSAPP FLUTUANTE
+   ========================================================= */
+
+/*
+   position: fixed:
+
+   Mantém o botão sempre no mesmo lugar da tela,
+   mesmo durante a rolagem.
+*/
+
+.whatsapp-float {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-whatsapp);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+
+    transition: var(--transition);
+}
+
+
+/*
+   Tamanho do ícone.
+*/
+
+.whatsapp-float img {
+    width: 32px;
+    height: 32px;
+}
+
+
+/*
+   Animação ao passar o mouse.
+*/
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
+
+.footer {
+    background-color: var(--color-dark);
+
+    color: var(--color-white);
+
+    padding-top: 60px;
+}
+
+
+/*
+   Conteúdo do rodapé.
+*/
+
+.footer-content {
+    width: min(90%, var(--container-width));
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 40px;
+}
+
+
+/*
+   Nome da empresa.
+*/
+
+.footer-brand h2 {
+    margin-bottom: 15px;
+}
+
+
+/*
+   Texto do rodapé.
+*/
+
+.footer-brand p {
+    color: #cccccc;
+
+    max-width: 400px;
+}
+
+
+/*
+   Título da área de contato.
+*/
+
+.footer-contact h3 {
+    margin-bottom: 15px;
+}
+
+
+/*
+   Remove o estilo padrão do address.
+*/
+
+.footer-contact address {
+    font-style: normal;
+}
+
+
+/*
+   Espaçamento entre informações.
+*/
+
+.footer-contact p {
+    margin-bottom: 8px;
+
+    color: #cccccc;
+}
+
+
+/*
+   Links do rodapé.
+*/
+
+.footer-contact a {
+    color: var(--color-primary);
+
+    transition: var(--transition);
+}
+
+
+.footer-contact a:hover {
+    color: var(--color-white);
+}
+
+
+/*
+   Parte inferior do footer.
+*/
+
+.footer-bottom {
+    padding: 20px 5%;
+
+    border-top: 1px solid #444444;
+
+    text-align: center;
+
+    color: #aaaaaa;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   17. TEMA ESCURO
+   ========================================================= */
+
+/*
+   O JavaScript adicionará a classe:
+
+   dark-mode
+
+   ao elemento <body>.
+
+   Assim podemos alterar as cores sem
+   duplicar todo o CSS.
+*/
+
+body.dark-mode {
+
+    --color-white: #181818;
+
+    --color-light: #222222;
+
+    --color-dark: #f5f5f5;
+
+    --color-text: #cccccc;
+
+    --color-border: #3a3a3a;
+}
+
+
+/*
+   Ajuste específico do Header no modo escuro.
+*/
+
+body.dark-mode .header {
+    background-color: #181818;
+}
+
+
+/*
+   Ajuste dos campos do formulário.
+*/
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #222222;
+
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+
+/*
+   Ajuste dos cards.
+*/
+
+body.dark-mode .service-card,
+body.dark-mode .project-card {
+    background-color: #1c1c1c;
+}
+
+
+/* =========================================================
+   18. TAMANHOS DE FONTE — ACESSIBILIDADE
+   ========================================================= */
+
+/*
+   O JavaScript adicionará uma das classes:
+
+   font-small
+   font-medium
+   font-large
+
+   ao <body>.
+*/
+
+
+/*
+   Tamanho pequeno.
+*/
+
+body.font-small {
+    font-size: 14px;
+}
+
+
+/*
+   Tamanho médio — padrão.
+*/
+
+body.font-medium {
+    font-size: 16px;
+}
+
+
+/*
+   Tamanho grande.
+*/
+
+body.font-large {
+    font-size: 20px;
+}
+
+
+/*
+   O uso de rem faz com que vários tamanhos
+   acompanhem o tamanho base da fonte.
+*/
+
+
+/* =========================================================
+   19. RESPONSIVIDADE — TABLETS
+   ========================================================= */
+
+/*
+   @media:
+
+   Permite aplicar regras diferentes
+   dependendo do tamanho da tela.
+
+   Aqui estamos trabalhando com telas
+   de até 1000px.
+*/
+
+@media (max-width: 1000px) {
+
+
+    /*
+       Quatro cards passam para duas colunas.
+    */
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /*
+       Quatro etapas passam para duas colunas.
+    */
+
+    .process-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    /*
+       Três projetos passam para duas colunas.
+    */
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   20. RESPONSIVIDADE — CELULARES
+   ========================================================= */
+
+/*
+   Até 768px consideramos uma tela pequena,
+   como celular.
+*/
+
+@media (max-width: 768px) {
+
+
+    /* -----------------------------------------
+       HEADER MOBILE
+    ----------------------------------------- */
+
+    .navbar {
+        min-height: 65px;
+    }
+
+
+    /*
+       Mostra o botão do menu.
+    */
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /*
+       Menu inicialmente escondido.
+
+       O JavaScript adicionará a classe .active
+       quando o usuário clicar no botão.
+    */
+
+    .menu {
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px 5%;
+
+        background-color: var(--color-white);
+
+        border-bottom: 1px solid var(--color-border);
+    }
+
+
+    /*
+       Quando o JavaScript adicionar .active,
+       o menu será exibido.
+    */
+
+    .menu.active {
+        display: flex;
+    }
+
+
+    /*
+       Cada item ocupa toda a largura.
+    */
+
+    .menu li {
+        width: 100%;
+    }
+
+
+    .menu a {
+        display: block;
+
+        padding: 12px 0;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
+
+    .hero {
+        min-height: 550px;
+    }
+
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+
+    /*
+       Botões ficam empilhados.
+    */
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .hero-buttons .button {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       SERVIÇOS
+    ----------------------------------------- */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -----------------------------------------
+       PROJETOS
+    ----------------------------------------- */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -----------------------------------------
+       PROCESSO
+    ----------------------------------------- */
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -----------------------------------------
+       SEÇÕES
+    ----------------------------------------- */
+
+    .services,
+    .about,
+    .projects,
+    .process,
+    .gallery,
+    .contact {
+        padding-top: 60px;
+
+        padding-bottom: 60px;
+    }
+
+
+    /* -----------------------------------------
+       CARROSSEL
+    ----------------------------------------- */
+
+    .carousel {
+        gap: 8px;
+    }
+
+
+    .carousel-button {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 1rem;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    /* -----------------------------------------
+       ACESSIBILIDADE
+    ----------------------------------------- */
+
+    .accessibility-panel {
+        top: 75px;
+
+        right: 10px;
+    }
+
+
+    /* -----------------------------------------
+       WHATSAPP
+    ----------------------------------------- */
+
+    .whatsapp-float {
+        width: 55px;
+
+        height: 55px;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+
+    .whatsapp-float img {
+        width: 29px;
+
+        height: 29px;
+    }
+
+}
+
+
+/* =========================================================
+   21. CELULARES MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+
+    /*
+       Reduzimos o título para evitar
+       quebra exagerada de linhas.
+    */
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+
+    /*
+       Reduzimos o padding lateral.
+    */
+
+    .services,
+    .about,
+    .projects,
+    .process,
+    .gallery,
+    .contact {
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+
+    /*
+       Botões do carrossel ficam menores.
+    */
+
+    .carousel-button {
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    /*
+       Painel de acessibilidade fica mais compacto.
+    */
+
+    .accessibility-panel {
+        gap: 2px;
+
+        padding: 4px;
+    }
+
+
+    .accessibility-panel button {
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* =========================================================
+   22. ACESSIBILIDADE — REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+/*
+   Algumas pessoas possuem sensibilidade
+   a animações e movimentos.
+
+   prefers-reduced-motion detecta uma preferência
+   configurada no sistema operacional/navegador.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
